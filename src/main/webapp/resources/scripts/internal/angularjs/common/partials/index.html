@@ -1,0 +1,125 @@
+<style>
+.websocket-container input[type=text] {
+	width: 100%;
+	border: solid 1px #D4D4D1;
+	transition: .7s;
+	font-size: 1.1em;
+	padding: 0.3em;
+	margin: 0.2em 0;
+}
+
+.websocket-container input[type=text]:focus {
+	-webkit-box-shadow: 0 0 5px 0 rgba(69, 155, 231, .75);
+	-moz-box-shadow: 0 0 5px 0 rgba(69, 155, 231, .75);
+	box-shadow: 0 0 5px 0 rgba(69, 155, 231, .75);
+	border-color: #459be7;
+	outline: none;
+}
+
+.websocket-container .info {
+	float: right;
+}
+
+.websocket-container form:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+.websocket-container button {
+	background: #459be7;
+	color: #FFF;
+	font-weight: 600;
+	padding: .3em 1.9em;
+	border: none;
+	font-size: 1.2em;
+	margin: 0;
+	text-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	cursor: pointer;
+	transition: .7s;
+}
+
+.websocket-container button:focus {
+	outline: none;
+}
+
+.websocket-container button:hover {
+	background: #1c82dd;
+}
+
+.websocket-container button:disabled {
+	background-color: #90BFE8;
+	cursor: not-allowed;
+}
+
+.websocket-container .count {
+	font-weight: 300;
+	font-size: 1.35em;
+	color: #CCC;
+	transition: .7s;
+}
+
+.websocket-container .count.danger {
+	color: #a94442;
+	font-weight: 600;
+}
+
+.websocket-container .message time {
+	width: 80px;
+	color: #999;
+	display: block;
+	float: left;
+}
+
+.websocket-container .message {
+	margin: 0;
+}
+
+.websocket-container .message .self {
+	font-weight: 600;
+}
+
+.websocket-container .message span {
+	width: calc(100% - 80px);
+	display: block;
+	float: left;
+	padding-left: 20px;
+	border-left: solid 1px #F1F1F1;
+	padding-bottom: .5em;
+}
+
+.websocket-container hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: solid 1px #F1F1F1;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.date-time {
+	font-size: 13px;
+	color: #aaa;
+}
+</style>
+<div class="container-fluid no-padding text-left">
+	<div class="container websocket-container">
+		<form data-ng-submit="addMessage()" name="messageForm">
+			<input type="text" placeholder="Compose a new message..."
+				data-ng-model="message" />
+			<div class="info">
+				<span class="count" data-ng-bind="max - message.length"
+					data-ng-class="{danger: message.length > max}">140</span>
+				<button
+					data-ng-disabled="message.length > max || message.length === 0">Send</button>
+			</div>
+		</form>
+		<hr />
+		<div data-ng-repeat="message in messages | orderBy:'time':true"
+			class="message alert alert-info" style="margin-top: 10px;">
+			{{message.message}}
+			<div class="date-time">{{message.date|date:'yyyy-mm-dd HH:mm'}}</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

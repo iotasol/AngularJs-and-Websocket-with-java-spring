@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="5">
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %-5p %C{1} %c - %m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.demo" level="error" />
+		<Logger name="com.demo.image" level="error" />
+		<Logger name="com.demo.util.MethodLogger" level="error" />
+		<Logger name="com.demo.repository.tenant" level="debug" />
+		<Logger name="org.springframework.security" level="error" />
+
+		<Logger name="org.hibernate.SQL" level="error" />
+		<Logger name="org.hibernate.type" level="error" />
+
+		<logger name="log4jdbc.log4j2" level="debug" additivity="false">
+			<MarkerFilter marker="LOG4JDBC_OTHER" onMatch="DENY"
+				onMismatch="NEUTRAL" />
+			<appender-ref ref="STDOUT" />
+		</logger>
+
+		<Root level="ERROR">
+			<AppenderRef ref="STDOUT" />
+		</Root>
+	</Loggers>
+</Configuration>
