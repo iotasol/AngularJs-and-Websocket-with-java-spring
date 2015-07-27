@@ -1,4 +1,4 @@
-# java-spring-demo
+# java-spring-demo-with-Spring-WebSocket
 
 This is demo app created by  <a  href="http://iotasol.com/">Iotasol Pvt Ltd</a>
 
@@ -8,6 +8,8 @@ This is demo app created by  <a  href="http://iotasol.com/">Iotasol Pvt Ltd</a>
     <li><a  href="http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html">Java JDK 1.8</a></li>
     <br>
     <li><a  href="#">Spring 4.1.0.RELEASE</a></li>
+    <br>
+    <li><a  href="#">Spring WebSocket</a></li>
     <br>
     <li><a  href="#">Maven Project</a></li>
     <br>
